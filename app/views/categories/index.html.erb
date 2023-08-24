@@ -1,0 +1,18 @@
+<h1>Categories#index</h1>
+<p>Find me in app/views/categories/index.html.erb</p>
+<ul>
+  <% @categories.each do |cat| %>
+      <li class="d-flex">
+        <div class="d-flex spc-btw m-100 f-end p-1 wrap bg">
+        <%= link_to category_path(cat.id) do %>
+          <h2><%= cat.name %></h2>
+          <h2><%= cat.author.name %></h2>
+          <h2><%= cat.icon %></h2>
+          <%= link_to 'Modify', edit_category_path(cat.id) %>
+          <%= button_to 'Delete', category_path(cat.id), method: :delete %>
+        </div>
+        <% end %>
+      </li>
+  <% end %>
+  </ul>
+  <%= link_to 'Add Category', new_category_path %>

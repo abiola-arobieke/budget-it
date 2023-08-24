@@ -1,0 +1,9 @@
+<%= form_with(model: category, class:"d-flex column col-gap-3 ") do |form| %>
+    <%= form.label :name %>
+    <%= form.text_field :name, required: true, class:"form-title" %>
+
+    <%= form.label :icon %>
+    <%= form.text_field :icon, required: true, class:"form-title" %>
+
+    <%= form.submit 'Submit', class: "btn middle" %>
+<% end %>
