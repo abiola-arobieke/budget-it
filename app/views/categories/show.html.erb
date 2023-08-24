@@ -1,0 +1,27 @@
+<h1>Categories#show</h1>
+<p>Find me in app/views/categories/show.html.erb</p>
+<ul>
+  <% @expense_items_categories.each do |cat| %>
+      <li class="d-flex">
+        <div class="d-flex spc-btw m-100 f-end p-1 wrap bg">
+        <%= link_to category_expense_item_path(@categories, cat.expense_item.id) do %>
+          <h2><%= cat.expense_item.id %></h2>
+          <h2><%= cat.expense_item.name %></h2>
+          <span>
+            <%= link_to 'Modify', edit_category_expense_item_path(@categories, cat.expense_item.id) %>
+            <%= button_to 'Delete', category_expense_item_path(@categories, cat.expense_item.id), method: :delete %>
+          </span>
+        </div>
+        <% end %>
+      </li>
+  <% end %>
+  </ul>
+  <%= link_to 'Add new item to cat', new_category_expense_item_path(@categories) %>
+  or
+
+  <%= link_to 'Select from Expense item', new_category_expense_item_path(@categories) %>
+
+  <%= link_to 'View all expense item', new_category_expense_item_path(@categories) %>
+
+  
+  
