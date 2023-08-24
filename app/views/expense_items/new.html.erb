@@ -1,0 +1,16 @@
+<h1>ExpenseItems#new</h1>
+<p>Find me in app/views/expense_items/new.html.erb</p>
+<h2 class="d-flex center">Add Expense</h2>
+<div class="middle m-50 p-2 wrap">
+  <%= form_with(model: @expenseitem, url: category_expense_items_path, class:"d-flex column col-gap-3 ") do |form| %>
+    <%= form.label :name %>
+    <%= form.text_field :name, required: true, class:"form-title" %>
+    
+    <%= form.label :amount %>
+    <%= form.number_field :amount, required: true, class:"form-title" %>
+   
+    <%= form.submit 'Submit', class: "btn middle" %>
+  <% end %>
+</div>
+
+
