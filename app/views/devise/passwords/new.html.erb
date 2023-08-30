@@ -1,16 +1,31 @@
-<h2>Forgot your password?</h2>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+<nav class="navbar navbar-expand-md navbar-dark bg-bala-blue fixed-top">
+    <div class="container-fluid">
+    <%= link_to new_user_session_path do %>
+        <i class="fa-solid fa-arrow-left"></i>
+      <% end %>
+    <a class="navbar-brand auto-center" href="#"> Forgot your password? </a>
+    </div>
+  </nav>
+<div class="container position-fixed">
+        <p class="notice"><%= notice %></p>
+        <p><%= alert %></p>
+        <div class="d-flex mt-3">
+            <div class="w-100">
+            <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+                <%= render "devise/shared/error_messages", resource: resource %>
+            
+                <div class="field">
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: "w-100 py-1" %>
+                </div>
+              
+                <div class="actions">
+                  <%= f.submit "Send me reset password instructions", class: "w-100 btn btn-md btn-primary mt-3 mb-3" %>
+                </div>
+              <% end %>
+              <div class="w-100 auto-center text-center">
+                  <%= link_to "Didn't receive confirmation email?", new_user_confirmation_path  %>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>

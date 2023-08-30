@@ -1,8 +1,11 @@
-<h1>Categories#new</h1>
-<p>Find me in app/views/categories/new.html.erb</p>
-<div>
-  <h2 class="d-flex center">Add a Category</h2>
-  <div class="middle m-50 p-2 wrap">
-    <%= render partial: "form", locals: {category: @category} %>
-  </div>
+<nav class="navbar navbar-expand-md navbar-dark bg-bala-blue fixed-top">
+    <div class="container-fluid">
+    <%= link_to categories_path do %>
+      <i class="fa-solid fa-arrow-left"></i>
+    <% end %>
+    <a class="navbar-brand auto-center" href="#">Add Category</a>
+    </div>
+</nav>
+<div class="mt-3">
+  <%= render partial: "form", locals: {category: @category} %>
 </div>

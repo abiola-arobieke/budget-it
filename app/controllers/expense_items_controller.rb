@@ -4,11 +4,13 @@ class ExpenseItemsController < ApplicationController
   end
 
   def show
+    @category = Category.find(params[:category_id])
     @expense_item = current_user.expense_items.find(params[:id])
   end
 
   def new
     @expenseitem = ExpenseItem.new
+    @category = Category.find(params[:category_id])
   end
 
   def create
@@ -26,13 +28,15 @@ class ExpenseItemsController < ApplicationController
   end
 
   def edit
+    @category = Category.find(params[:category_id])
     @expenseitem = current_user.expense_items.find(params[:id])
   end
 
   def update
     @expenseitem = current_user.expense_items.find(params[:id])
     if @expenseitem.update(expense_item_params)
-      redirect_to category_path, notice: 'Expense item has been updated.'
+      redirect_to category_expense_item_path(params[:category_id], params[:id]),
+                  notice: 'Expense item has been updated.'
     else
       flash.now[:alert] = 'Error! Unable to modify expense item.'
       render :edit
@@ -43,7 +47,7 @@ class ExpenseItemsController < ApplicationController
     @expense_item = current_user.expense_items.find(params[:id])
 
     if @expense_item.destroy
-      redirect_to category_path, notice: 'Expense item has been updated.'
+      redirect_to category_path(params[:category_id]), notice: 'Expense item has been updated.'
     else
       flash.now[:alert] = 'Error! Unable to modify expense item.'
       render :show
