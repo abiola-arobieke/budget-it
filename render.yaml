@@ -1,8 +1,6 @@
 databases:
   - name: postgres
     ipAllowList: []
-    databaseName: postgres
-    user: budget_it
 
 services:
   - type: web
@@ -18,3 +16,8 @@ services:
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
+  - type: redis
+    name: rails
+    ipAllowList: []
+    plan: free
+    maxmemoryPolicy: noeviction
