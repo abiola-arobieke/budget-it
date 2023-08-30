@@ -1,8 +1,10 @@
-<h2>Update category</h2>
-<div class="d-flex spc-btw m-100 f-end p-1 wrap bg">
-
-<h2 class="d-flex center">Update <%= @category.name %> Category </h2>
-<%= render partial: "form", locals: {category: @category} %>
-    
-</div>
+<nav class="navbar navbar-expand-md navbar-dark bg-bala-blue fixed-top">
+  <div class="container-fluid">
+  <%= link_to categories_path do %>
+    <i class="fa-solid fa-arrow-left"></i>
+  <% end %>
+  <a class="navbar-brand auto-center" href="#">Edit category</a>
+    </div>
+  </nav>
+<%= render partial: "form", locals: {category: @category} %>    
    
