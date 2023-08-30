@@ -1,15 +1,13 @@
 class CategoriesController < ApplicationController
   before_action :authenticate_user!
-  # load_and_authorize_resource
 
   def index
-    # @user = User.find(current_user.id)
     @categories = current_user.categories.order(created_at: :desc)
   end
 
   def show
-    @categories = Category.find(params[:id])
-    @expense_items_categories = @categories.expense_items_categories.order(created_at: :desc)
+    @category = Category.find(params[:id])
+    @expense_items_categories = @category.expense_items_categories.order(created_at: :desc)
   end
 
   def new
