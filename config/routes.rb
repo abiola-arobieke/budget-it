@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # get 'home/index'
   # get 'expense_items/index'
   # get 'expense_items/show'
   # get 'expense_items/new'
@@ -13,18 +14,20 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  # root to: "home#index"
-  # devise_scope :user do
-  #   authenticated :user do
-  #     root to: 'categories#index', as: :authenticated_root
-  #   end
+  # root "home#index"
+  devise_scope :user do
+    authenticated :user do
+      root to: 'categories#index', as: :authenticated_root
+    end
 
-  #   unauthenticated do
+    unauthenticated do
       root 'home#index'
-  #   end
-  # end
-
+    end
+  end
+  #If no route matches
   
+  # match '*path', via: :all, to: redirect('/404')
+
   resources :categories, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :expense_items, only: [:index, :show, :new, :create, :edit, :update, :destroy] 
   end
