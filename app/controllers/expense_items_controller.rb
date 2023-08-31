@@ -14,13 +14,13 @@ class ExpenseItemsController < ApplicationController
   end
 
   def create
-    @expense_item = ExpenseItem.new(expense_item_params)
+    @category_id = expense_item_params.except(:name, :amount)[:category_id]
+    @expense_item = ExpenseItem.new(expense_item_params.except(:category_id))
     @expense_item.author = current_user
-    @category = Category.find(params[:category_id])
 
     if @expense_item.save
-      @expense_category = ExpenseItemsCategory.create(expense_item: @expense_item, category: @category)
-      redirect_to category_path(@category), notice: 'Expense item has been created.'
+      @expense_category = ExpenseItemsCategory.create(expense_item: @expense_item, category_id: @category_id)
+      redirect_to category_path(@category_id), notice: 'Expense item has been created.'
     else
       flash.now[:alert] = 'Error! Unable to create a expense item.'
       render :new
