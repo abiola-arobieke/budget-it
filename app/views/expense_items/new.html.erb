@@ -19,6 +19,9 @@
                 <div class="field">
                   <%= form.number_field :amount, required: true, placeholder: "Price", class: "w-100 mt-3 py-1" %>
                 </div>
+                <div class="field">
+                  <%= form.select :category_id, current_user.categories.order(:name).map { |cat| [cat.name, cat.id] }, selected: params[:category_id], class: "w-100 mt-3 py-1" %>
+                </div>
                 <div class="mt-3">
                       <div class="container-fluid actions bg-green ">
                       <%= form.submit 'Save', class: "w-100 btn btn-md btn-success bg-green mt-3 mb-3" %>
