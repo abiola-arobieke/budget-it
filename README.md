@@ -124,6 +124,8 @@ If you like this project... Give it a Star
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
+Original design idea by Gregoire Vella on Behance
+
 I would like to thank to the Microverse team for the learning opportunity
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -131,7 +133,5 @@ I would like to thank to the Microverse team for the learning opportunity
 ## 📝 License <a name="license"></a>
 
 This project is [MIT](./LICENSE.md) licensed.
-
-Original design idea by Gregoire Vella on Behance
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
