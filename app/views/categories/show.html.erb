@@ -1,0 +1,58 @@
+<div>
+<nav class="navbar navbar-expand-md navbar-dark bg-bala-blue fixed-top">
+  <div class="container-fluid">
+  <%= link_to categories_path do %>
+    <i class="fa-solid fa-arrow-left"></i>
+  <% end %>
+    <a class="navbar-brand auto-center" href="#">Expense Item</a>
+  </div>
+</nav>
+<div class="">
+    <div class="col-sm-12 w-100 ">
+          <div class="col-sm-12 w-100">
+            <div class="card mb-1">
+              <div class="row g-0 ms-2 me-2">
+                <div class="col-2">
+                  <%= image_tag @category.icon, class: 'img-s', alt: 'icon' %>
+                </div>
+                <div class="d-flex a-center col-10">
+                <div class="d-flex v-center card-body">
+                    <h5 class="card-title"><%= @category.name%></h5>
+                    <p class="card-text">&#x20A6 <%= '%.2f' % @expense_items_categories.includes(:expense_item).map(&:expense_item).map(&:amount).sum() %></p>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% if @expense_items_categories.any? %>
+          <div class="container">
+            <% @expense_items_categories.includes(:expense_item).each do |cat| %>
+              <div class="d-flex ">
+                <div class="w-100">
+                  <div class="card mb-1 page-titl">
+                  <%= link_to category_expense_item_path(@category, cat.expense_item.id) do %>
+                    <div class="d-flex card-body v-center">
+                        <h5 class="card-title ft-6"><%= cat.expense_item.name %></h5>
+                        <p class="card-text ft-6">&#x20A6 <%= '%.2f' % cat.expense_item.amount %></p>
+                    </div>
+                    <div class="row card-body">
+                          <p class="created-date"><%= cat.created_at.strftime("%d %b %Y") %></p>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+                </div>
+              <% end %>
+            </div>
+          <% else %>
+          <div class="card-title mt-2 mb-2 ms-1 me-1">
+              <p class="card-title"><%= @category.name%> is empty. Please add an item. </p>
+            </div>
+        <% end %>
+    </div>
+</div>
+<div class="fixed-bottom bottom-0 w-100">
+  <div class="container-fluid actions bg-green ">
+    <%= link_to "Add Item to #{@category.name}", new_category_expense_item_path(@category), class: "w-100 btn btn-md btn-success bg-green mt-3 mb-3" %>
+  </div>
+</div>

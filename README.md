@@ -92,6 +92,7 @@ Then, run the following command to start the app
 - Linkedin: [@abiola-arobieke](https://linkedin.com/in/abiola-arobieke)
 - Twitter: [@abiola_arobieke](https://twitter.com/abiola_arobieke)
 
+https://budget-it-service.onrender.com/
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -102,6 +103,10 @@ Then, run the following command to start the app
 - [ ] **Share budget**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🚀 Live Demo <a name="live-demo"></a>
+
+- [Live site](https://budget-it-service.onrender.com/)
 
 ## 🤝 Contributing <a name="contributing"></a>
 
@@ -119,6 +124,8 @@ If you like this project... Give it a Star
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
+Original design idea by Gregoire Vella on Behance
+
 I would like to thank to the Microverse team for the learning opportunity
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -126,7 +133,5 @@ I would like to thank to the Microverse team for the learning opportunity
 ## 📝 License <a name="license"></a>
 
 This project is [MIT](./LICENSE.md) licensed.
-
-Original design idea by Gregoire Vella on Behance
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

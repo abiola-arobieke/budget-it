@@ -1,0 +1,59 @@
+<div>
+  <nav class="navbar navbar-expand-md navbar-dark bg-bala-blue fixed-top">
+      <div class="container-fluid">
+        <%= render :partial => 'shared/menu_button' %>
+          <a class="navbar-brand auto-center" href="#">Budget</a>
+        <%= render :partial => 'shared/menu_dropdown' %>
+      </div>
+  </nav>
+  <div class="col-sm-12 w-100">
+    <div class="card mb-1">
+      <div class="d-flex v-center head-title a-center">
+          <h5>Overall Budget</h4>
+          <p class="card-title">
+            &#x20A6 <%= '%.2f' % @categories.includes(expense_items_categories: :expense_item).sum { |c| c.expense_items_categories.flat_map(&:expense_item).sum(&:amount) } %>
+          </p>       
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <% if @categories.any? %>
+        <% @categories.includes(:expense_items_categories).each do |cat| %>
+            <div class="d-flex">
+              <div class="w-100">
+                <%= link_to category_path(cat.id) do %>
+                  <div class="card mb-1">
+                    <div class="row g-0 me-2 ms-1">
+                      <div class="d-flex a-center col-2">
+                        <%= image_tag cat.icon, class: 'img-s', alt: 'icon' %>
+                      </div>
+                      <div class="col-10 card-detai">
+                        <div class="d-flex v-center card-body">
+                          <h6 class="card-title"><%= cat.name %></h6>
+                            <p class="card-text">
+                              &#x20A6 <%= '%.2f' % cat.expense_items_categories.includes(:expense_item).pluck(:amount).sum %>
+                            </p>   
+                        </div>
+                        <div class="row card-body">
+                          <p class="created-date"><%= cat.created_at.strftime("%d %b %Y") %></p>
+                        </div>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+                </div>
+            </div>
+        <% end %>
+    <% else %>
+          <div class="card-title mt-3 ms-1 me-1">
+            <h5 class="card-title">No category found! Please add one. </h5>
+          </div>
+    <% end %>
+  </div>
+  <div class="fixed-bottom bottom-0 w-100">
+    <div class="container-fluid actions bg-green">
+      <%= link_to 'Add Category', new_category_path, class: "w-100 btn btn-md btn-success bg-green mt-3 mb-3" %>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,11 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-bala-blue fixed-top">
+    <div class="container-fluid">
+    <%= link_to categories_path do %>
+      <i class="fa-solid fa-arrow-left"></i>
+    <% end %>
+    <a class="navbar-brand auto-center" href="#">Add Category</a>
+    </div>
+</nav>
+<div class="mt-3">
+  <%= render partial: "form", locals: {category: @category} %>
+</div>

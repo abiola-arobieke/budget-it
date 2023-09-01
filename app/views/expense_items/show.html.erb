@@ -1,0 +1,35 @@
+<div>
+  <nav class="navbar navbar-expand-md navbar-dark bg-bala-blue fixed-top">
+    <div class="container-fluid">
+    <%= link_to category_path(@category.id) do %>
+        <i class="fa-solid fa-arrow-left"></i>
+      <% end %>
+    <a class="navbar-brand auto-center" href="#">Update <%= @expense_item.name %></a>
+    </div>
+  </nav>
+  <div>
+    <div class="d-flex">
+        <div class="w-100">
+            <div class="card mb-1 mt-3">
+                <div class="d-flex v-center card-body page-titl ms-1 me-1">
+                    <h5 class="card-title ms-1"><%= @expense_item.name %></h5>
+                    <p class="card-text me-1">&#x20A6 <%= '%.2f' % @expense_item.amount %></p>
+                </div>
+                <div class="row card-body">
+                    <p class="created-date"><%= @expense_item.created_at.strftime("%d %b %Y") %></p>
+                </div>
+            </div>
+        </div>
+     </div>
+     <div class="row card-body bg-white">
+        <div class="col-6 text-center ">
+            <%= link_to edit_category_expense_item_path(@category.id, @expense_item.id), class: "w-50 ms-1 btn btn-md btn-special mt-3 mb-1" do %>
+                <i class="fas fa-edit"></i>
+            <% end %>
+        </div>
+        <div class="col-6 text-center">
+            <%= button_to '<i class="fa-solid fa-trash"></i>'.html_safe, category_expense_item_path(@category.id, @expense_item.id), class: "w-50 ms-1 btn btn-md btn-special mt-3 mb-1", method: :delete %>
+        </div>
+      </div>
+    </div>
+</div>

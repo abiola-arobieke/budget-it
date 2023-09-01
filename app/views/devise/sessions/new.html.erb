@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-bala-blue fixed-top">
+    <div class="container-fluid">
+    <%= link_to root_path do %>
+        <i class="fa-solid fa-arrow-left"></i>
+      <% end %>
+    <a class="navbar-brand auto-center" href="#">Sign In </a>
+    </div>
+  </nav>
+<div class="container position-fixed">
+    <p class="notice"><%= notice %></p>
+    <p><%= alert %></p>
+        <div class="d-flex mt-3">
+            <div class="w-100">
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <div class="field">
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: "w-100 py-1" %>
+              </div>
+            
+              <div class="field">
+                <%= f.password_field :password, autocomplete: "current-password", class: "w-100 mt-3 py-1", placeholder:"password" %>
+              </div>
+            
+              <div class="actions">
+                <%= f.submit "Log in", class: "w-100 btn btn-md btn-primary mt-3 mb-3" %>
+              </div>
+            <% end %>
+            <div class="w-50 auto-center text-center">
+              <%= link_to "Forget Password?", new_user_password_path %>
+            </div>
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-bala-blue fixed-top">
+    <div class="container-fluid">
+    <%= link_to :back do %>
+        <i class="fa-solid fa-arrow-left"></i>
+      <% end %>
+        <a class="navbar-brand auto-center" href="#">Update Account </a>
+    </div>
+  </nav>
+<div class="container position-fixed">
+    <p class="notice"><%= notice %></p>
+    <p><%= alert %></p>
+        <div class="d-flex mt-3">
+            <div class="w-100">
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+
+              <div class="field" >
+                <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Enter your name..", class: "w-100 mt-3 py-1" %>
+              </div>
+
+              <div class="field">
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: "w-100 py-1 mt-3" %>
+              </div>
+
+              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                  <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+              <% end %>
+            
+              <div class="field">
+                <%= f.password_field :password, autocomplete: "new-password", class: "w-100 mt-3 py-1", placeholder:"new password" %>
+              </div>
+
+              <div class="field">
+                <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Re-enter new password.." , class: "w-100 mt-3 py-1" %>
+              </div>
+
+              <div class="field">
+                <%= f.password_field :current_password, autocomplete: "current-password", class: "w-100 mt-3 py-1", placeholder:"current password" %>
+               </div>
+            
+              <div class="actions">
+                <%= f.submit "Update", class: "w-100 btn btn-md btn-primary mt-3 mb-3" %>
+              </div>
+            <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+
+  
+
+
+
+
+
+
+

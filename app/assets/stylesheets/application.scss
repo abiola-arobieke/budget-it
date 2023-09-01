@@ -1,0 +1,191 @@
+@import "bootstrap";
+@import "font-awesome";
+@import url('https://fonts.cdnfonts.com/css/proxima-nova-2');
+
+$primary-color: #3778c2;
+$text-color1: #434b54;
+$text-color2: #86898e;
+$text-color3: #989da2;
+
+body {
+  background-color: #f0f2f1;
+  color: $text-color1;
+  padding-top: 4rem !important;
+  font-family: 'Proxima Nova', sans-serif;
+  min-height: 75rem;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: $text-color1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  margin-bottom: 0 !important;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+.b-example-divider {
+  width: 100%;
+  height: 3rem;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: solid rgba(0, 0, 0, 0.15);
+  border-width: 1px 0;
+  box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1), inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
+}
+
+.b-example-vr {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 100vh;
+}
+
+.bi {
+  vertical-align: -0.125em;
+  fill: currentColor;
+}
+
+.nav-scroller {
+  position: relative;
+  z-index: 2;
+  height: 2.75rem;
+  overflow-y: hidden;
+}
+
+.nav-scroller .nav {
+  display: flex;
+  flex-wrap: nowrap;
+  padding-bottom: 1rem;
+  margin-top: -1px;
+  overflow-x: auto;
+  text-align: center;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+.btn-primary,
+.btn-success,
+.btn-danger {
+  border-radius: 1px !important;
+}
+
+.bg-green {
+  background-color: #5fb523 !important;
+}
+
+.btn-success {
+  border: 1px solid #fff;
+}
+
+.btn-primary {
+  background-color: $primary-color !important;
+}
+
+.btn-danger {
+  border: none !important;
+}
+
+.btn-special {
+  color: $text-color1;
+  border: 1px solid $text-color3;
+  border-radius: 0.2px;
+}
+
+.bg-bala-blue {
+  background-color: $primary-color;
+}
+
+.txt-bala-blue {
+  color: $primary-color;
+}
+
+.container-fluid {
+  justify-content: unset !important;
+}
+
+.auto-center {
+  margin: 0 auto;
+}
+
+.card {
+  border: none !important;
+  border-radius: 0.5px !important;
+}
+
+.card-body {
+  padding: 0 8px !important;
+}
+
+.f-column {
+  flex-direction: column !important;
+}
+
+.ft-6 {
+  font-size: 0.925rem;
+}
+
+.v-center {
+  justify-content: space-between;
+}
+
+.a-center {
+  align-items: center;
+}
+
+.navbar-brand {
+  text-transform: uppercase;
+}
+
+.fa-arrow-left {
+  color: #fff;
+  font-size: 20px;
+}
+
+.created-date {
+  font-size: 0.65rem;
+  color: $text-color2;
+}
+
+.card-detai {
+  padding: 8px 0;
+}
+
+.img-s {
+  width: 50px;
+  height: 50px;
+}
+
+.head-title {
+  padding: 12px 8px;
+}
+
+.page-titl {
+  padding: 12px 0 !important;
+}
+
+.fa-edit,
+.fa-trash {
+  font-size: larger;
+}
+
+select {
+  width: 100%;
+  padding: 0.4rem 0;
+  margin-top: 1rem;
+}
